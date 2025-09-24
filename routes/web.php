@@ -97,7 +97,7 @@ Route::get('/students/count', function () {
 });
 
 Route::get('/students/course/{course}', function ($course) {
-    return Student::where('course', $course)->get();
+    return Student::where('course', $course)->get();    
 });
 
 // Simple query-string search: /students/search?email=ana@example.com
