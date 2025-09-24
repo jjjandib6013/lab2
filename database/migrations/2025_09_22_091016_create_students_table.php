@@ -15,10 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('course');
-            $table->string('email')->unique();
+            $table->string('email');
+            $table->softDeletes();
             $table->timestamps();
-            $table->softDeletes(); // enable soft deletes
+
+            // Unique only when deleted_at is NULL
+            $table->unique(['email', 'deleted_at']);
         });
+
     }
 
     /**
