@@ -108,3 +108,15 @@ Route::get('/students/search', function (Request $request) {
         ? Student::where('email', $email)->first()
         : [];
 })->middleware('web'); // ensure session/csrf middleware stack
+
+Route::get('/students', [StudentController::class, 'index'])->name('students.index');
+Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
+Route::post('/students', [StudentController::class, 'store'])->name('students.store');
+Route::get('/students/{id}/edit', [StudentController::class, 'edit'])->name('students.edit');
+Route::post('/students/{id}', [StudentController::class, 'update'])->name('students.update');
+Route::get('/students/{id}/delete', [StudentController::class, 'destroy'])->name('students.destroy');
+Route::get('/students/{id}/restore', [StudentController::class, 'restore'])->name('students.restore');
+
+
+
+

@@ -6,15 +6,12 @@
 <body>
     <h1>Add Student</h1>
 
-    {{-- Display Validation Errors --}}
     @if ($errors->any())
-        <div style="color:red;">
-            <ul>
-                @foreach ($errors->all() as $e)
-                    <li>{{ $e }}</li>
-                @endforeach
-            </ul>
-        </div>
+        <ul style="color:red;">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
     @endif
 
     <form method="POST" action="{{ route('students.store') }}">
@@ -31,9 +28,5 @@
 
         <button type="submit">Save</button>
     </form>
-
-    <p>
-        <a href="{{ route('students.index') }}">Back to list</a>
-    </p>
 </body>
 </html>

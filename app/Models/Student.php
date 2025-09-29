@@ -10,7 +10,6 @@ class Student extends Model
 {
     use HasFactory, SoftDeletes;
 
-    // ✅ Make sure these match your actual table columns
     protected $fillable = [
         'name',
         'course',
